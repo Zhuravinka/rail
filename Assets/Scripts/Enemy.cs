@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] GameObject deathFX;
+    [SerializeField] Transform parent;
+    [SerializeField] int scorePerHit = 10;
+
+    ScoreBoard scoreBoard;
     // Start is called before the first frame update
     void Start()
     {
-        
+        AddBoxCollider();
+        scoreBoard = FindObjectOfType<ScoreBoard>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddBoxCollider()
     {
-        
+        Collider enemyCollider = gameObject.AddComponent<BoxCollider>();
+        enemyCollider.isTrigger = false;
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        scoreBoard.ScoreHit(scorePerHit);
+        GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
+        fx.transform.parent = parent;
+        Destroy(gameObject);
     }
 }

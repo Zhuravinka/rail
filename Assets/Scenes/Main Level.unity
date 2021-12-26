@@ -696,6 +696,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1843777567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1425657939218033705, guid: 2112d9378308bf24b99c72966b8d49b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1952273365361731389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1904656363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1952273366450793832, guid: 2112d9378308bf24b99c72966b8d49b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1952273365361731389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &350480626718329581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,20 +854,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 534669905}
     m_Modifications:
+    - target: {fileID: 1220061441, guid: 2112d9378308bf24b99c72966b8d49b7, type: 3}
+      propertyPath: guns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220061441, guid: 2112d9378308bf24b99c72966b8d49b7, type: 3}
+      propertyPath: guns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1904656363}
+    - target: {fileID: 1220061441, guid: 2112d9378308bf24b99c72966b8d49b7, type: 3}
+      propertyPath: guns.Array.data[1]
+      value: 
+      objectReference: {fileID: 1843777567}
     - target: {fileID: 1425657939218033700, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}
       propertyPath: CollisionModule.minKillSpeed
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1425657939218033700, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1425657939218033700, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425657939218033705, guid: 2112d9378308bf24b99c72966b8d49b7,
+        type: 3}
+      propertyPath: m_Name
+      value: Gun Left
       objectReference: {fileID: 0}
     - target: {fileID: 1950698523039050366, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}
@@ -865,12 +894,17 @@ PrefabInstance:
     - target: {fileID: 1952273366450793829, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}
       propertyPath: CollisionModule.minKillSpeed
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1952273366450793829, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}
       propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952273366450793832, guid: 2112d9378308bf24b99c72966b8d49b7,
+        type: 3}
+      propertyPath: m_Name
+      value: Gun Right
       objectReference: {fileID: 0}
     - target: {fileID: 1952432408939250630, guid: 2112d9378308bf24b99c72966b8d49b7,
         type: 3}

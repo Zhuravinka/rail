@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class PlayerController: MonoBehaviour
     [Tooltip("In ms^-1")] [SerializeField] float ControlSpeed = 40f;
     [Tooltip("In m")] [SerializeField] float xRange = 20f;
     [Tooltip("In m")] [SerializeField] float yRange = 15f;
+    [SerializeField] GameObject[] guns;
 
     [Header("Screen-position Based")]
     [SerializeField] float positionPitchFactor = -2f;
@@ -26,13 +28,15 @@ public class PlayerController: MonoBehaviour
         {
             ProcessTranslation();
             ProcessRotation();
+            ProcessFiring();
         }
 
     }
-    void OnPlayerDeath() //called by string message!
-    {
-        isControlEnabled = false;
-    }
+
+
+
+
+
     private void ProcessRotation()
     {
         float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
@@ -64,7 +68,31 @@ public class PlayerController: MonoBehaviour
         transform.localPosition = new Vector3(clampedXPos, transform.localPosition.y, transform.localPosition.z);
         transform.localPosition = new Vector3(transform.localPosition.x, clampedYPos, transform.localPosition.z);
     }
+    void OnPlayerDeath() //called by string message!
+    {
+        isControlEnabled = false;
+    }
 
+
+    private void ProcessFiring()
+    {
+        if (Input.GetButton("Fire"))
+        {
+            SetGunsActive(true);
+        }
+        else
+            SetGunsActive(false);
+    }
+
+    private void SetGunsActive(bool isActive)
+    {
+        foreach (GameObject gun in guns)
+        {
+            var emissionModule = gun.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = isActive;
+        }
+    }
+   
    
 
 }
